@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Tu Próximo Destino Será</title>
+  <style>
+    body {
+      background: linear-gradient(to right, #4facfe, #00f2fe);
+      font-family: Arial, sans-serif;
+      text-align: center;
+      overflow: hidden;
+    }
+    
+    h1 {
+      font-size: 60px;
+      color: #f2f2f2;
+      margin-top: 150px;
+      animation: fadeIn 1s ease-in-out;
+    }
+    
+    .destination {
+      font-size: 30px;
+      color: #fff;
+      margin-top: 50px;
+      opacity: 0;
+      animation: growIn 1s ease-in-out forwards;
+    }
+    
+    .destination.show {
+      animation: fadeIn 1s ease-in-out 0.5s forwards;
+    }
+    
+    button {
+      margin-top: 30px;
+      padding: 15px 30px;
+      font-size: 24px;
+      background-color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      animation: fadeIn 1s ease-in-out;
+    }
+    
+    button:hover {
+      background-color: #f2f2f2;
+    }
+    
+    @keyframes fadeIn {
+      0% { opacity: 0; }
+      100% { opacity: 1; }
+    }
+    
+    @keyframes growIn {
+      0% { transform: scale(0); opacity: 0; }
+      100% { transform: scale(1); opacity: 1; }
+    }
+  </style>
+  <script>
+    function mostrarDestino() {
+      var destinos = [
+        "Alemania",
+        "Austria",
+        "Bélgica",
+        "Bulgaria",
+        "Chipre",
+        "Croacia",
+        "Dinamarca",
+        "Eslovaquia",
+        "Eslovenia",
+        "España",
+        "Estonia",
+        "Finlandia",
+        "Francia",
+        "Grecia",
+        "Hungría",
+        "Irlanda",
+        "Italia",
+        "Letonia",
+        "Lituania",
+        "Luxemburgo",
+        "Malta",
+        "Países Bajos",
+        "Polonia",
+        "Portugal",
+        "Reino Unido",
+        "República Checa",
+        "Rumania",
+        "Suecia"
+      ];
+      
+      var destinoAleatorio = destinos[Math.floor(Math.random() * destinos.length)];
+      var destinoElement = document.getElementById("destino");
+      destinoElement.innerHTML = destinoAleatorio;
+      destinoElement.classList.remove("show");
+      
+      setTimeout(function() {
+        destinoElement.classList.add("show");
+      }, 10);
+    }
+  </script>
+</head>
+<body>
+  <h1>Tu Próximo Destino Será</h1>
+  <div class="destination">
+    <p>@XAVII._ TE DICE QUE VAS A IR A....:</p>
+    <p id="destino"></p>
+  </div>
+  <button onclick="mostrarDestino()">¡Mostrar Destino!</button>
+</body>
+</html>
